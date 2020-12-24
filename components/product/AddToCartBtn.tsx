@@ -1,3 +1,4 @@
+// as of right now, this should probably be called the "checkout" button
 const AddToCartBtn = ({ product, state, dispatch }) => {
   return (
     <button
@@ -8,12 +9,12 @@ const AddToCartBtn = ({ product, state, dispatch }) => {
           payload: 'button-pressed',
         });
       }}
-      className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+      className="inline-flex items-center px-4 py-2 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
       disabled={state.addedToCart}
     >
-      Add to Cart
+      Checkout
       <svg
-        className="ml-3 -mr-1 h-5 w-5"
+        className="w-5 h-5 ml-3 -mr-1"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"

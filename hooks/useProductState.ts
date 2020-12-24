@@ -15,7 +15,7 @@ const reducer = (state, action) => {
       };
     case 'ADD_TO_CART':
       console.log('attempting ATC');
-      // NOTE: this is a side effect...
+      // NOTE: this is a side effect: it redirects the user to a cart page
       createCheckout(state);
       return {
         ...state,
