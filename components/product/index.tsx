@@ -12,13 +12,13 @@ const Product = ({ product }) => {
   const [state, dispatch] = useProductState(product);
 
   return (
-    <article className="grid md:grid-cols-2 w-full">
+    <article className="grid w-full md:grid-cols-2">
       <Gallery product={product} state={state} />
       <div>
         <Title product={product} state={state} />
-        <Description product={product} />
         <Options product={product} dispatch={dispatch} />
         <AddToCartBtn product={product} state={state} dispatch={dispatch} />
+        <Description product={product} />
       </div>
     </article>
   );
