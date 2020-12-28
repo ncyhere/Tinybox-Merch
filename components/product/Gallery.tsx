@@ -19,7 +19,9 @@ const Gallery: FunctionComponent<GalleryProps> = ({ staticProduct, state }) => {
             : state.selectedVariant.image.src
         }
         alt={`picture of ${staticProduct.title}`}
-        className="w-full h-auto"
+        className={`w-full h-auto ${
+          state.loading && 'productImage--loading'
+        } transition-all`}
       />
     </div>
   );

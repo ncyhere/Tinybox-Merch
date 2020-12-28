@@ -1,0 +1,4 @@
+/* for little custom pieces of CSS */
+.productImage--loading {
+  filter: grayscale(1);
+}
