@@ -1,16 +1,14 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 
 const Gallery = ({ product, state }) => {
   const { selectedVariant: variant } = state;
 
   return (
     <div className="p-8">
-      <Image
+      <img
         src={variant.image.src}
         alt={`picture of ${product.title} in ${variant.title}`}
-        width="400px"
-        height="400px"
-        layout="responsive"
+        className="w-full h-auto"
       />
     </div>
   );

@@ -1,5 +1,5 @@
 module.exports = {
-  target: 'serverless',
+  // target: 'serverless',
   images: {
     domains: ['cdn.shopify.com'],
   },
