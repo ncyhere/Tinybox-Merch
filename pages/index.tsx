@@ -3,7 +3,7 @@ import Cart from '@components/cart';
 import useShopify from '@hooks/useShopify';
 import { useEffect, useState } from 'react';
 
-const Index = ({}) => {
+const Index = () => {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
@@ -17,11 +17,16 @@ const Index = ({}) => {
 
   return (
     <div className="relative grid w-full min-h-screen grid-cols-1 place-items-center">
-      <Cart />
-      <header className="grid h-28 place-items-center">
-        <h1 className="text-xl font-bold text-gray-800">Tinybox Merch</h1>
-      </header>
-      <main className="grid max-w-5xl gap-32 px-6 md:px-0">
+      <nav className="fixed z-10 flex items-center justify-between w-full grid-cols-3 px-2 py-4 bg-white shadow">
+        <a
+          href="#"
+          className="text-xl font-bold text-gray-900 justify-self-center"
+        >
+          TinyMerch
+        </a>
+        <Cart />
+      </nav>
+      <main className="grid max-w-5xl gap-32 px-6 mt-24 md:px-0">
         {products ? (
           products.map((product) => {
             return <Product key={product.id} product={product} />;

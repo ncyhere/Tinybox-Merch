@@ -1,6 +1,6 @@
 import CartContext from '@components/cart/CartContext';
 import { useContext, useState } from 'react';
-import CartSlider from './CartSlider';
+import CartSlider from './cartSlider/';
 
 const Cart = () => {
   // TODO disable button while loading
@@ -11,9 +11,9 @@ const Cart = () => {
     <>
       <button
         onClick={() => {
-          setShowCart(!showCart);
+          setShowCart(true);
         }}
-        className="fixed flex items-center px-4 py-2 rounded top-4 right-4 bg-red hover:bg-gray-100 focus:outline-none focus:ring focus:border-blue-300 focus:bg-gray-100 disabled:opacity-50"
+        className="flex items-center px-4 py-2 rounded top-4 right-4 hover:bg-gray-100 focus:outline-none focus:ring focus:border-blue-300 focus:bg-gray-100 disabled:opacity-50"
         disabled={loading}
       >
         <svg
@@ -32,7 +32,7 @@ const Cart = () => {
         </svg>
         Cart - {loading ? <>~</> : cart.lineItems.length}
       </button>
-      {showCart && <CartSlider cart={cart} />}
+      {showCart && <CartSlider setShowCart={setShowCart} />}
     </>
   );
 };
