@@ -11,8 +11,8 @@ const Gallery: FunctionComponent<GalleryProps> = ({ staticProduct, state }) => {
   return (
     <div className="p-8">
       <img
-        width="440px"
-        height="440px"
+        width="448px"
+        height="448px"
         src={
           state.loading
             ? staticProduct.image.src
