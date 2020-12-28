@@ -1,37 +1,28 @@
+import Head from 'next/head';
 import Product from '@components/product';
-import Cart from '@components/cart';
-import useShopify from '@hooks/useShopify';
 import { ShopifyAdmin } from '@utils/shopifyAdmin';
-import { useEffect, useState } from 'react';
 
 const Index = ({ products }) => {
-  // const [products, setProducts] = useState(null);
-
-  // useEffect(() => {
-  //   const dataFetcher = async () => {
-  //     const shopifyClient = useShopify();
-  //     setProducts(await shopifyClient.product.fetchAll());
-  //   };
-  //   dataFetcher();
-  // }, []);
-
   return (
-    <div className="relative grid w-full min-h-screen grid-cols-1 place-items-center">
-      <nav className="fixed z-10 flex items-center justify-between w-full grid-cols-3 px-2 py-4 bg-white shadow">
-        <a href="#" className="text-xl font-bold justify-self-center">
-          Tinybox Merch
-        </a>
-        <Cart />
-      </nav>
+    <>
+      <Head>
+        <title>Home - Tinybox Merch</title>
+        <meta property="og:title" content="Home - Tinybox Merch" />
+        <meta
+          name="description"
+          content="Welcome to the Tinybox Merch Store! Support Tinybox by picking up a hoodie or something!."
+        ></meta>
+        <meta
+          property="og:description"
+          content="Welcome to the Tinybox Merch Store! Support Tinybox by picking up a hoodie or something!"
+        ></meta>
+      </Head>
       <main className="grid max-w-5xl gap-32 px-6 mt-24 md:px-0">
         {products.map((product) => {
           return <Product key={product.id} product={product} />;
         })}
       </main>
-      <footer className="grid text-sm text-gray-400 h-28 place-items-center">
-        Tinybox Software Development. 2020
-      </footer>
-    </div>
+    </>
   );
 };
 
