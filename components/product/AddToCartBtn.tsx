@@ -22,7 +22,9 @@ const AddToCartBtn: FunctionComponent<AddToCartBtnProps> = ({
             payload: updateCart,
           });
         }}
-        className="flex items-center justify-center w-full px-4 py-2 my-4 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:animate-pulse"
+        className={`${
+          (loading || state.loading) && 'animate-pulse bg-opacity-50'
+        } flex items-center justify-center w-full px-4 py-2 my-4 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50`}
         disabled={state.addedToCart || loading || state.loading}
       >
         {state.addedToCart ? 'Added to Cart! ✨' : 'Add to Cart'}

@@ -2,7 +2,11 @@ module.exports = {
   purge: ['./pages/**/*.tsx', './components/**/*.tsx'],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      minHeight: {
+        'half-screen': '50vh',
+      },
+    },
   },
   variants: {
     extend: {
