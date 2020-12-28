@@ -3,7 +3,7 @@ const SliderHeader = ({ setShowCart }) => {
     <header className="flex items-center justify-between mt-2 mb-4">
       <p className="text-2xl">Cart</p>
       <button
-        className="flex items-center w-auto px-4 py-2 rounded"
+        className="flex items-center px-4 py-2 rounded top-4 right-4 hover:bg-gray-100 focus:outline-none focus:ring focus:border-blue-300 focus:bg-gray-100 disabled:opacity-50"
         onClick={() => {
           setShowCart(false);
         }}

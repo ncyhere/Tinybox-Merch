@@ -18,11 +18,8 @@ const Index = () => {
   return (
     <div className="relative grid w-full min-h-screen grid-cols-1 place-items-center">
       <nav className="fixed z-10 flex items-center justify-between w-full grid-cols-3 px-2 py-4 bg-white shadow">
-        <a
-          href="#"
-          className="text-xl font-bold text-gray-900 justify-self-center"
-        >
-          TinyMerch
+        <a href="#" className="text-xl font-bold justify-self-center">
+          Tinybox Merch
         </a>
         <Cart />
       </nav>

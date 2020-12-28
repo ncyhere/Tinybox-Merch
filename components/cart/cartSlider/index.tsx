@@ -6,17 +6,10 @@ import SliderHeader from './SliderHeader';
 import SliderLineItems from './SliderLineItems';
 
 const CartSlider = ({ setShowCart }) => {
-  const { updateCart, cart } = useContext(CartContext);
-
-  // TODO move this to be centralized in cartcontext
-  const removeLineItem = async (lineItemId) => {
-    const shopify = useShopify();
-    await shopify.checkout.removeLineItems(cart.id, [lineItemId]);
-    updateCart();
-  };
+  const { updateCart, cart, loading } = useContext(CartContext);
 
   return (
-    <aside className="fixed top-0 right-0 z-10 w-full h-screen px-4 py-2 overflow-hidden bg-white shadow sm:w-2/3 md:w-96">
+    <aside className="fixed top-0 right-0 z-10 flex flex-col justify-between w-full h-screen px-4 py-2 overflow-hidden bg-white shadow sm:w-2/3 md:w-96">
       <SliderHeader setShowCart={setShowCart} />
       <SliderLineItems cart={cart} />
       <SliderCheckout cart={cart} />

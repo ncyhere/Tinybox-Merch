@@ -22,6 +22,11 @@ const reducer = (state, action) => {
         ...state,
         addedToCart: true,
       };
+    case 'RESET':
+      return {
+        ...state,
+        addedToCart: false,
+      };
   }
 };
 

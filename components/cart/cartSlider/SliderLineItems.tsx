@@ -2,7 +2,7 @@ import SliderLineItem from './SliderLineItem';
 
 const SliderLineItems = ({ cart }) => {
   return (
-    <>
+    <div className="self-start w-full h-full">
       {cart.lineItems.length > 0 ? (
         <>
           {cart.lineItems.map((lineItem) => {
@@ -12,7 +12,7 @@ const SliderLineItems = ({ cart }) => {
       ) : (
         <p>Your cart is empty</p>
       )}
-    </>
+    </div>
   );
 };
 
