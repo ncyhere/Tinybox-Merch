@@ -1,19 +1,19 @@
 import Product from '@components/product';
 import Cart from '@components/cart';
 import useShopify from '@hooks/useShopify';
+import { ShopifyAdmin } from '@utils/shopifyAdmin';
 import { useEffect, useState } from 'react';
 
-const Index = () => {
-  const [products, setProducts] = useState(null);
+const Index = ({ products }) => {
+  // const [products, setProducts] = useState(null);
 
-  useEffect(() => {
-    const dataFetcher = async () => {
-      const shopifyClient = useShopify();
-      const products = await shopifyClient.product.fetchAll();
-      setProducts(products);
-    };
-    dataFetcher();
-  }, []);
+  // useEffect(() => {
+  //   const dataFetcher = async () => {
+  //     const shopifyClient = useShopify();
+  //     setProducts(await shopifyClient.product.fetchAll());
+  //   };
+  //   dataFetcher();
+  // }, []);
 
   return (
     <div className="relative grid w-full min-h-screen grid-cols-1 place-items-center">
@@ -24,13 +24,9 @@ const Index = () => {
         <Cart />
       </nav>
       <main className="grid max-w-5xl gap-32 px-6 mt-24 md:px-0">
-        {products ? (
-          products.map((product) => {
-            return <Product key={product.id} product={product} />;
-          })
-        ) : (
-          <p>loading products...</p>
-        )}
+        {products.map((product) => {
+          return <Product key={product.id} product={product} />;
+        })}
       </main>
       <footer className="grid text-sm text-gray-400 h-28 place-items-center">
         Tinybox Software Development. 2020
@@ -38,5 +34,15 @@ const Index = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const shopify = ShopifyAdmin();
+  const data = await shopify.product.list({ status: 'active' });
+  return {
+    props: {
+      products: data,
+    },
+  };
+}
 
 export default Index;

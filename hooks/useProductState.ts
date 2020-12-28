@@ -8,6 +8,18 @@ import useShopify from './useShopify';
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case 'PRODUCT_LOADED':
+      const product = action.payload;
+      const variant = () => {
+        return product.variants[0];
+      };
+      console.log(`${product.title} has loaded`);
+      return {
+        product: product,
+        selectedVariant: variant(),
+        loading: false,
+        addedToCart: false,
+      };
     case 'CHANGE_VARIANT':
       console.log('variant has changed');
       return {
@@ -43,10 +55,11 @@ const addToCart = async (state, callback) => {
   callback();
 };
 
-const useProductState = (product) => {
+const useProductState = () => {
   const initState = {
-    product: product,
-    selectedVariant: product.variants[0],
+    loading: true,
+    product: null,
+    selectedVariant: null,
     addedToCart: false,
   };
   return useReducer(reducer, initState);

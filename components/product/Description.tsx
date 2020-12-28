@@ -1,6 +1,6 @@
-const Description = ({ product }) => {
+const Description = ({ staticProduct }) => {
   return (
-    <div dangerouslySetInnerHTML={{ __html: `${product.descriptionHtml}` }} />
+    <div dangerouslySetInnerHTML={{ __html: `${staticProduct.body_html}` }} />
   );
 };
 
