@@ -9,29 +9,30 @@ const Options = ({ staticProduct, state, dispatch }) => {
 const SkeletonOptions = ({ staticProduct }) => {
   return (
     <div className="grid gap-4 my-4 md:grid-cols-2">
-      {staticProduct.options.map((option) => (
-        <div key={option.id} className="block">
-          <label className="flex flex-col" htmlFor={option.name}>
-            {option.name}
-          </label>
-          <select
-            className="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            name={option.name}
-            id={option.name}
-          >
-            <option value={undefined}>loading...</option>
-            {option.values.map((value) => (
-              <option
-                key={`${option.name}|${value.value}`}
-                value={`${option.name}|${value.value}`}
-                disabled={true}
-              >
-                {value.value}
-              </option>
-            ))}
-          </select>
-        </div>
-      ))}
+      {staticProduct.options > 1 &&
+        staticProduct.options.map((option) => (
+          <div key={option.id} className="block">
+            <label className="flex flex-col" htmlFor={option.name}>
+              {option.name}
+            </label>
+            <select
+              className="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              name={option.name}
+              id={option.name}
+            >
+              <option value={undefined}>loading...</option>
+              {option.values.map((value) => (
+                <option
+                  key={`${option.name}|${value.value}`}
+                  value={`${option.name}|${value.value}`}
+                  disabled={true}
+                >
+                  {value.value}
+                </option>
+              ))}
+            </select>
+          </div>
+        ))}
     </div>
   );
 };

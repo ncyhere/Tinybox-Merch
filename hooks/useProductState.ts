@@ -13,7 +13,6 @@ const reducer = (state, action) => {
       const variant = () => {
         return product.variants[0];
       };
-      console.log(`${product.title} has loaded`);
       return {
         product: product,
         selectedVariant: variant(),
@@ -21,14 +20,12 @@ const reducer = (state, action) => {
         addedToCart: false,
       };
     case 'CHANGE_VARIANT':
-      console.log('variant has changed');
       return {
         ...state,
         addedToCart: false,
         selectedVariant: action.payload,
       };
     case 'ADD_TO_CART':
-      console.log('attempting ATC');
       addToCart(state, action.payload);
       return {
         ...state,

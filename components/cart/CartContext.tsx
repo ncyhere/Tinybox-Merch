@@ -29,7 +29,6 @@ export const CartContextProvider = ({ children }) => {
   const getCart = async (cartId: string) => {
     const shopify = useShopify();
     const cart = await shopify.checkout.fetch(cartId);
-    console.log(cart);
     setCart(cart);
     setLoading(false);
   };
@@ -38,7 +37,6 @@ export const CartContextProvider = ({ children }) => {
     const shopify = useShopify();
     const cart = await shopify.checkout.create();
     localStorage.setItem('cart_id', `${cart.id}`);
-    console.log(cart);
     setCart(cart);
     setLoading(false);
   };
