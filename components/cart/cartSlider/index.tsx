@@ -1,5 +1,4 @@
 import CartContext from '@components/cart/CartContext';
-import useShopify from '@hooks/useShopify';
 import { useContext } from 'react';
 import SliderCheckout from './SliderCheckout';
 import SliderHeader from './SliderHeader';

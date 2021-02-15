@@ -1,8 +1,12 @@
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
 import useShopify from '@hooks/useShopify';
 import CartContext from '../CartContext';
 
-const SliderLineItem = ({ lineItem }) => {
+type SliderLineItemProps = {
+  lineItem: any;
+};
+
+const SliderLineItem: FC<SliderLineItemProps> = ({ lineItem }) => {
   const { updateCart, cart } = useContext(CartContext);
 
   // TODO move this to be centralized in cartcontext
