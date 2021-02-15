@@ -109,7 +109,7 @@ const LoadedOptions = ({ product, dispatch }) => {
       <div className="grid gap-4 my-4 md:grid-cols-2">
         {options.map((option) => {
           return (
-            <div key={option.id} className="block">
+            <div key={option.name} className="block">
               <label className="flex flex-col" htmlFor={option.name}>
                 {option.name}
               </label>
