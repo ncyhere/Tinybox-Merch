@@ -15,7 +15,7 @@ const SliderLineItem = ({ lineItem }) => {
   return (
     <div className="flex mb-4">
       <img
-        className="mr-4"
+        className="object-cover mr-4"
         src={lineItem.variant.image.src}
         width="64px"
         height="64px"

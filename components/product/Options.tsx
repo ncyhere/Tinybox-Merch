@@ -1,15 +1,26 @@
-import { useEffect, useState } from 'react';
+import { Dispatch, FC, useEffect, useState } from 'react';
 import isArrayEqual from '@utils/isArrayEqual';
+import { IProduct } from 'shopify-api-node';
 
-const Options = ({ staticProduct, state, dispatch }) => {
+type OptionsProps = {
+  staticProduct: IProduct;
+  state: any;
+  dispatch: Dispatch<any>;
+};
+
+const Options: FC<OptionsProps> = ({ staticProduct, state, dispatch }) => {
   if (state.loading) return <SkeletonOptions staticProduct={staticProduct} />;
   return <LoadedOptions product={state.product} dispatch={dispatch} />;
 };
 
-const SkeletonOptions = ({ staticProduct }) => {
+type SkeletonProps = {
+  staticProduct: IProduct;
+};
+
+const SkeletonOptions: FC<SkeletonProps> = ({ staticProduct }) => {
   return (
     <div className="grid gap-4 my-4 md:grid-cols-2">
-      {staticProduct.options > 1 &&
+      {staticProduct.options.length > 1 &&
         staticProduct.options.map((option) => (
           <div key={option.id} className="block">
             <label className="flex flex-col" htmlFor={option.name}>
@@ -23,11 +34,11 @@ const SkeletonOptions = ({ staticProduct }) => {
               <option value={undefined}>loading...</option>
               {option.values.map((value) => (
                 <option
-                  key={`${option.name}|${value.value}`}
-                  value={`${option.name}|${value.value}`}
+                  key={`${option.name}|${value}`}
+                  value={`${option.name}|${value}`}
                   disabled={true}
                 >
-                  {value.value}
+                  {value}
                 </option>
               ))}
             </select>
@@ -37,7 +48,12 @@ const SkeletonOptions = ({ staticProduct }) => {
   );
 };
 
-const LoadedOptions = ({ product, dispatch }) => {
+type LoadedOptionsProps = {
+  product: any; // no types for shopify buy-sdk
+  dispatch: Dispatch<any>;
+};
+
+const LoadedOptions: FC<LoadedOptionsProps> = ({ product, dispatch }) => {
   const calcOptions = () => {
     if (product.variants.length > 1) {
       const variants = product.variants;
