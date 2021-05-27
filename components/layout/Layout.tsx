@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 
 const Layout = ({ children }) => {
   return (
-    <div className="relative grid w-full min-h-screen grid-cols-1 place-items-center">
+    <div className="relative grid w-full min-h-screen grid-cols-1">
       <Navbar />
       {children}
       <Footer />
